@@ -1,31 +1,8 @@
 <x-app-layout>
     
     <x-dashboard-header></x-dashboard-header>
-    <div class="main wrapper">
-      <div class="profile pc">
-         <div class="user-image">
-             <img src="{{ asset('img/no-user-image.png')}}" alt="">
-             <div class="user-name"><span>お参り 太郎</span>さん</div>
-             <a >プロファイル</a>
-         </div>
-         <div class="icons">
-             <div class="icon-item">
-                 <img src="{{ asset('img/ema.png')}}" alt="">
-                 <div class="text">絵馬</div>
-             </div>
-             <div class="icon-item">
-                 <img src="{{ asset('img/omikuji.png')}}" alt="">
-                 <div class="text">おみくじ</div>
-             </div>
-         </div>
-         <div class="buy-coin">
-             <div>
-                <img src="{{ asset('img/coin.png')}}" alt="">
-                <span>コイン購入</span>
-             </div>
-             <img src="{{ asset('img/right-icon.png')}}" alt="">
-         </div>
-      </div>
+    <div class="main wrapper jisha-post">
+        <x-profile></x-profile>
       <div class="main-content">
         <div class="public-title">
             掲載申請
@@ -51,32 +28,38 @@
                 <p class="left-text">お電話番号</p>
                 <p class="right-text">111222333</p>
             </div>
-            <div class="edit-text">
-                <p>ご住所</p>
-                <div class="addr">
-                    <input type="text" name="name" placeholder="5900802">
-                    <input type="button" class="get-addr" value="住所取得">
+            {{ Form::open(array('route' => 'mypage.public.send')) }}
+                <div class="edit-text">
+                    <p>メールアドレス</p>
+                    <input type="text" name="mail" required>
                 </div>
-            </div>
-            <div class="edit-text">
-                <p>都道府県</p>
-                <input type="text" name="name">
-            </div>
-            <div class="edit-text">
-                <p>市区町村</p>
-                <input type="text" name="name">
-            </div>
-            <div class="edit-text">
-                <p>住所</p>
-                <input type="text" name="name">
-            </div>
-            <div class="edit-text">
-                <p>建物名・部屋番号</p>
-                <input type="text" name="name">
-            </div>
-            <div class="section">
-                <a >申請</a>
-            </div>
+                <div class="edit-text">
+                    <p>ご住所</p>
+                    <div class="addr">
+                        <input type="text" name="address" placeholder="5900802" required> 
+                        <input type="button" class="get-addr" value="住所取得">
+                    </div>
+                </div>
+                <div class="edit-text">
+                    <p>都道府県</p>
+                    <input type="text" name="prefectures" required>
+                </div>
+                <div class="edit-text">
+                    <p>市区町村</p>
+                    <input type="text" name="municipalities" required>
+                </div>
+                <div class="edit-text">
+                    <p>住所</p>
+                    <input type="text" name="addr-detail" required>
+                </div>
+                <div class="edit-text">
+                    <p>建物名・部屋番号</p>
+                    <input type="text" name="building" required>
+                </div>
+                <div class="section">
+                    {{Form::submit('申請');}}
+                </div>
+            {{ Form::close() }}
         </div>
       </div>
       <div class="menu sp" onclick="menuClose()"></div>

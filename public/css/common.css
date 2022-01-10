@@ -26,6 +26,10 @@ html {
   padding: 0;
   margin: 0;
 }
+
+label {
+  cursor: pointer;
+}
 body {
   margin: 0;
   background-color: white;
@@ -33,8 +37,43 @@ body {
   overflow-x: hidden;
   font-family: "NotoSans Medium";
 }
+.main {
+  margin-top: calc(0px + 81px);
+}
+#toast-container>.toast-custom {
+  background-color: #FFD200 !important;
+  opacity: 1;
+  width: 350px;
+}
+#toast-container>div {
+  color: #1A1311 !important;
+  padding: 15px 35px 15px 15px !important;
+  white-space: nowrap;
+}
+[type='submit'] {
+  cursor: pointer;
+}
+@media screen and (min-width: 900px) {
+  #toast-container>div {
+    padding: 13px 25px 13px 13px !important;
+    font-size: 18px;
+  }
+}
 
-
+.icon-off:before, .icon-off:after {
+  position: absolute;
+  right: -5px;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #333;
+}
+.icon-off:before {
+  transform: rotate(45deg);
+}
+.icon-off:after {
+  transform: rotate(-45deg);
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -44,6 +83,7 @@ a {
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 
@@ -102,6 +142,10 @@ img {
   padding: 20px 0px;
   background: #fff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0px;
 }
 .header-area {
   display: flex;
@@ -211,6 +255,9 @@ img {
   }
   .sp {
     display: unset;
+  }
+  .main {
+    margin-top: calc(0px + 81px);;
   }
   .wrapper {
     width: calc(100% - 30px);

@@ -5,7 +5,7 @@
       <div>
         <a href="{{ route('mypage.mypage')}}">
           <img src="{{ asset('img/coin.png')}}" alt="">
-          <span>1,000</span>
+          <span>{{ isset(\Auth::user()->coin->remained) ? \Auth::user()->coin->remained : 0}}</span>
         </a>
         <a href="{{route('mypage.mypage')}}" class="sp mypage-sp">マイページ</a>
         <div class="menu-btn sp" onClick="menuClick(this)">
@@ -27,6 +27,7 @@
           <li class="menu-sp-item"><a href="{{ route('pub.jisha')}}"><img src="{{ asset('img/white-jisha.png')}}" alt="">寺社一覧</a></li>
           <li class="menu-sp-item"><a href="{{ route('pub.contact')}}"><img src="{{ asset('img/white-contact.png')}}" alt="">お問い合わせ</a></li>
           <li class="menu-sp-item"><a href="{{ route('mypage.omikuji')}}"><img src="{{ asset('img/white-omikuji.png')}}" alt="">おみくじを引く</a></li>
+          <li class="menu-sp-item"><a href="{{ route('mypage.jisha-post')}}">寺社掲載申請へ</a></li>
           <li class="menu-sp-item">
             <form method="POST" action="{{ route('logout') }}" class="menu-logout-form">
               @csrf

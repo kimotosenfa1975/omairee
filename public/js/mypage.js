@@ -1,6 +1,13 @@
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+     }
+  });
+
   function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -10,21 +17,13 @@ $( document ).ready(function() {
             $('#imagePreview').fadeIn(650);
         }
         reader.readAsDataURL(input.files[0]);
+        $('#avartar').submit();
     }
   }
   $("#imageUpload").change(function() {
     readURL(this);
   });
 
-  function countChar(val) {
-    var len = val.value.length;
-    if (len >= 500) {
-      val.value = val.value.substring(0, 500);
-    } else {
-      $('#charNum').text(500 - len);
-    }
-  };
-  
   const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#id_password');
   if(togglePassword) {
@@ -60,6 +59,14 @@ function menuClose() {
         submenu.style.height = null;
     }
 }
+function countChar(val) {
+  var len = val.value.length;
+  if (len >= 100) {
+    val.value = val.value.substring(0, 100);
+  } else {
+    $('#charNum').text(100 - len);
+  }
+};
 
 function onEditInfo() {
   $('#editInfo').removeClass('hide');
@@ -72,7 +79,11 @@ function redo() {
 }
 
 function onUpdateInfo() {
+  $("#updateInfo").submit();
+}
 
+function onUpdatePass() {
+  $("#updatePass").submit();
 }
 
 function editPassword() {
@@ -102,4 +113,8 @@ function onEditBank() {
 function redoBank() {
   $('#editBank').addClass('hide');
   $('#showBank').removeClass('hide');
+}
+
+function buyCoin() {
+  $('#coinCost').val($('input[name=cost]:checked').val());
 }

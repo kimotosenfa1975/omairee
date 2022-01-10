@@ -92,13 +92,10 @@
     </div>
     <div class="section pub-footer">
       <img src="{{ asset('img/pub-main-cats.png')}}" alt="">
-      <a >さっそくお参りしよう</a>
+      <a href="{{ route('pub.jisha')}}">さっそくお参りしよう</a>
     </div>
     <x-footer></x-footer>
-    
-</x-guest-layout>
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
       var swiper = new Swiper(".mySwiper", {
             slidesPerView: 2,
@@ -127,5 +124,8 @@
                 spaceBetween:50,
               }
             },
-          });
-    </script>
+        });
+  </script>
+</x-guest-layout>
+
+    

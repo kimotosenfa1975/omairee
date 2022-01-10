@@ -8,7 +8,7 @@
               <p>会社概要</p>
             </div>
           </div>
-          <div class="wrapper">
+          <div class="wrapper" id="company-info">
             <div class="horizontal-line"></div>
             <div class="contact-info-item">
               <p class="title">会社名</p>
@@ -41,7 +41,7 @@
             </div>
             <div class="horizontal-line"></div>
          </div>
-         <div class="wrapper">
+         <div class="wrapper" id="contact">
             <div class="contact-form">
               <p>お問い合わせ</p>
             </div>

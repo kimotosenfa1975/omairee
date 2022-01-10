@@ -18,6 +18,7 @@ class TopController extends Controller
         $diffInSeconds = $date->diffInSeconds($now)%60;
 
         $newyear = $now->lte($date);
+        
         return view('public.top',compact('diffDays','diffInHours','diffInMinutes','diffInSeconds','newyear'));
     }
 }

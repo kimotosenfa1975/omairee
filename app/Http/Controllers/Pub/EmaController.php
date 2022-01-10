@@ -19,4 +19,16 @@ class EmaController extends Controller
     function list() {
         return view('mypage.ema-list');
     }
+
+    function emaRegister(Request $request) {
+        try {
+            \Auth::user()->emas()->create([
+                'text' => $request->ema_text,
+            ]);
+        }catch (\Throwable $e) {
+            
+        }
+        toastr()->success('絵馬が登録されました。','',config('toastr.options'));
+        return view('mypage.ema-after-register');
+    }
 }

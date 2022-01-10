@@ -11,4 +11,8 @@ class RequestController extends Controller
     function index() {
         return view('mypage.public-request');
     }
+     
+    function postSend() {
+        dd(request()->all());
+    }
 }

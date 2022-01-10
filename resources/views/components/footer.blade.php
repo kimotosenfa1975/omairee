@@ -9,9 +9,9 @@
       <ul class="footer-list">
         <li class="footer-item"><a href="{{ route('terms')}}">利用規約</a></li>
         <li class="footer-item"><a href="{{ route('transaction')}}">特定商取引法の表示</a></li>
-        <li class="footer-item"><a href="{{ route('terms')}}">会社情報</a></li>
+        <li class="footer-item"><a href="{{ route('pub.contact')}}#company-info">会社情報</a></li>
         <li class="footer-item"><a href="{{ route('privacy')}}">プライバシーポリシー</a></li>
-        <li class="footer-item"><a href="{{ route('pub.contact')}}">お問い合わせ</a></li>
+        <li class="footer-item"><a href="{{ route('pub.contact')}}#contact">お問い合わせ</a></li>
       </ul>
       <ul class="icon-list sp">
           <li class="icon-item">

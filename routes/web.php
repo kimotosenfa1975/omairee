@@ -29,16 +29,20 @@ Route::get('/transaction', function () {
 })->name('transaction');
 
 Route::name('mypage.')->middleware(['auth'])->group(function () {
-    Route::get('/mypage', function () {
-        // Route assigned name "admin.users"...
-        return view('mypage.mypage');
-    })->name('mypage');
+    Route::get('/mypage', [App\Http\Controllers\Mypage\MypageController::class, 'index'])->name('mypage');
+    Route::post('/uploadImg',[App\Http\Controllers\Mypage\MypageController::class, 'imgUpload'])->name('upload');
+    Route::post('/updateInfo',[App\Http\Controllers\Mypage\MypageController::class, 'updateInfo'])->name('updateInfo');
+    Route::post('/updatePass',[App\Http\Controllers\Mypage\MypageController::class, 'updatePass'])->name('updatePass');
+    Route::post('/buyCoin',[App\Http\Controllers\Mypage\MypageController::class, 'buyCoin'])->name('buyCoin');
+    
     Route::get('/omikuji', [App\Http\Controllers\Pub\OmikujiController::class, 'index'])->name('omikuji');
     Route::get('/ema', [App\Http\Controllers\Pub\EmaController::class, 'index'])->name('ema');
+    Route::post('/ema-register',[App\Http\Controllers\Pub\EmaController::class, 'emaRegister'])->name('ema-register');
     Route::get('/ema-after', [App\Http\Controllers\Pub\EmaController::class, 'after'])->name('ema-after');
     Route::get('/ema-list', [App\Http\Controllers\Pub\EmaController::class, 'list'])->name('ema-list');
     Route::get('/jisha-mypage', [App\Http\Controllers\Mypage\JishaController::class, 'index'])->name('jisha-mypage');
-    Route::get('/public-request', [App\Http\Controllers\Mypage\RequestController::class, 'index'])->name('public-request');
+    Route::get('/jisha-post', [App\Http\Controllers\Mypage\RequestController::class, 'index'])->name('jisha-post');
+    Route::post('/post-send', [App\Http\Controllers\Mypage\RequestController::class, 'postSend'])->name('public.send');
     Route::get('/payment', [App\Http\Controllers\Mypage\PaymentController::class, 'index'])->name('payment');
 });
 
