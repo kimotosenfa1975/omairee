@@ -16,8 +16,8 @@ class JishaSaisens extends Migration
         Schema::create('jisha_saisens', function (Blueprint $table) {
             $table->id();
             $table->integer('jisha_id')->nullable()->unsigned()->comment('Jisha ID');
-            $table->string('saisen');
-            $table->integer('saisen_count');
+            $table->string('saisen')->nullable();
+            $table->integer('saisen_count')->default(0);
             $table->timestamps();
         });
     }

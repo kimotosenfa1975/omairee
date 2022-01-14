@@ -13,6 +13,7 @@ class JishaController extends Controller
     //
     function index() {
         $jisha = \Auth::user()->jisha;
+        if($jisha === null) $jisha->save();
         $jishaEmas = $jisha->jishaemas;
         $jishaSaisens = $jisha->jishasaisens;
         $total=0;

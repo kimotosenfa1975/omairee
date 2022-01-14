@@ -9,7 +9,9 @@
               <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
             @endif
             <img src="{{ asset('img/jisha-item.png') }}" class="jisha-detailed-image" alt="">
+            @if(isset($jisha->name))
             <a  class="jisha-name">{{ $jisha->name }}</a>
+            @endif
           </div>
           <p class="desc">{{ $jisha->description}}</p>
           <div class="section">

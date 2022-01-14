@@ -19,17 +19,30 @@ class CompanyController extends Controller
 
     function detail($id) {
         $jisha=Jisha::where('id',$id)->first();
+        if($jisha === null) {
+            $jisha=Jisha::create([]);
+        }
         $user= \Auth::user();
         return view('public.jisha-detail',compact('jisha','user'));
     }
 
     function toPray(Request $request) {
+        if(\Auth::user() === null) {
+            toastr()->success('ログインしてください。','',config('toastr.options'));
+            return back();
+        }
         $coin = \Auth::user()->coin;
+        if($coin === null) {
+            $coin = Coin::create();
+        }
         $ema=$request->get('ema');
         $saisen=$request->get('saisen');
         $coin->remained = $coin->remained-$ema-$saisen;
         $jishaId = $request->get('jishaId');
         $jisha = Jisha::where('id',$jishaId)->first();
+        if($jisha ===  null) {
+            $jisha = Jisha::create();
+        }
         $jishaEma=$jisha->jishaemas;
         $jishaSaisen=$jisha->jishasaisens;
         $emaCheck = JishaEma::where('ema',$ema)->first();

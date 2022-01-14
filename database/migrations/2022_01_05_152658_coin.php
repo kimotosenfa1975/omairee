@@ -18,7 +18,7 @@ class Coin extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned()->comment('User ID');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('remained');
+            $table->integer('remained')->default(0);
             $table->timestamps();
         });
     }

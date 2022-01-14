@@ -18,7 +18,7 @@ class UserJisha extends Migration
             $table->id();
             $table->integer('user_id')->nullable()->unsigned()->comment('User ID');
             $table->integer('jisha_id')->nullable()->unsigned()->comment('jisha ID');
-            $table->integer('coin');
+            $table->integer('coin')->default(0);
             $table->timestamps();
         });
     }

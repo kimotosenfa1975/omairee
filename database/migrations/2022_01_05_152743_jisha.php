@@ -18,15 +18,15 @@ class Jisha extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned()->comment('User ID');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('name');
-            $table->LongText('description');
-            $table->string('mail');
-            $table->string('bankName');
-            $table->string('financialName');
-            $table->integer('accountNumber');
-            $table->string('branch');
-            $table->tinyInteger('checked')->de;
-            $table->string('img');
+            $table->string('name')->nullable();
+            $table->LongText('description')->nullable();
+            $table->string('mail')->nullable();
+            $table->string('bankName')->nullable();
+            $table->string('financialName')->nullable();
+            $table->integer('accountNumber')->nullable();
+            $table->string('branch')->nullable();
+            $table->tinyInteger('checked')->default(0);
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

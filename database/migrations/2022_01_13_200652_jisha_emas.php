@@ -16,8 +16,8 @@ class JishaEmas extends Migration
         Schema::create('jisha_emas', function (Blueprint $table) {
             $table->id();
             $table->integer('jisha_id')->nullable()->unsigned()->comment('Jisha ID');
-            $table->string('ema');
-            $table->integer('ema_count');
+            $table->string('ema')->nullable();
+            $table->integer('ema_count')->default(0);
             $table->timestamps();
         });
     }

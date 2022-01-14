@@ -18,7 +18,7 @@ class Ema extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned()->comment('User ID');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->LongText('text');
+            $table->LongText('text')->nullable(0);
             $table->timestamps();
         });
     }
