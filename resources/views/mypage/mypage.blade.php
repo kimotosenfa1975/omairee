@@ -148,7 +148,7 @@
 
       <div class="modal-container jisha-detail" id="coin-modal">
             <div class="modal">
-                {{ Form::open(array('route' => 'mypage.buyCoin','class'=>'coin_modal','id'=>'payment-form','data-locale'=>'auto','data-stripe-publishable-key'=>env('STRIPE_KEY'))) }}
+                {{ Form::open(array('route' => 'mypage.buyCoin','class'=>'coin_modal','id'=>'payment-form','data-stripe-publishable-key'=>env('STRIPE_KEY'))) }}
                     <div class="refereceText">※コインのご購入は「110コイン」からです。</div>
                     {{Form::select('coinCost', array(
                         '100' => '100コイン　￥100',
@@ -211,7 +211,7 @@
                         {{Form::checkbox('termsAgree','','',array('id'=>'termsAgree'))}}
                         {{Form::label('termsAgree','利用規約に同意')}}
                     </div>
-                    <p class="error"></p>
+                    <p class="error">利用規約と会員登録に同意してください。</p>
                     {{Form::submit("購入")}}
                 {{ Form::close() }}
                 <a href="#m1-c" class="link-2"></a>
