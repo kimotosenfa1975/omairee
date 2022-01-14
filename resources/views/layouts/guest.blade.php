@@ -22,7 +22,7 @@
     <body>
         {{ $slot }}
     </body>
-    jquery
+    @jquery
     @toastr_js
     @toastr_render
     <script src="{{ asset('js/mypage.js') }}"></script>
