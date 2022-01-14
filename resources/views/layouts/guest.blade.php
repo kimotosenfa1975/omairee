@@ -16,11 +16,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        @toastr_css
         
     </head>
     <body>
         {{ $slot }}
     </body>
+    jquery
+    @toastr_js
+    @toastr_render
     <script src="{{ asset('js/mypage.js') }}"></script>
 </html>
