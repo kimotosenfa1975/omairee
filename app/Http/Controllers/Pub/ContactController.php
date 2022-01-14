@@ -24,5 +24,7 @@ class ContactController extends Controller
             'message'=>$request->get('message'),
         );
         Notification::locale('ja')->send($mailuser, new ContactNotification($data));
+        toastr()->success('転送が完了しました。','',config('toastr.options'));
+        return back();
     }
 }
