@@ -6,60 +6,15 @@
           <p>寺社一覧</p>
         </div>
         <div class="jisha-items jisha-wrapper">
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div>
-          <div class="jisha-item">
-            <img src="{{ asset('img/jisha-item.png') }}" alt="">
-            <a href="{{ route('pub.jisha-detail')}}" class="jisha-name">omairee神社</a>
-          </div> 
+          @foreach ($jishas as $jisha)
+            <div class="jisha-item">
+              @if($jisha->checked)
+                <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
+              @endif
+              <img src="{{ asset('img/jisha-item.png') }}" alt="">
+              <a href="{{ route('pub.jisha-detail',$jisha)}}" class="jisha-name">{{ $jisha->name }}</a>
+            </div>
+          @endforeach
         </div>
     </div>
     <x-footer></x-footer>

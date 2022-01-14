@@ -156,7 +156,7 @@
   font-size: 11px;
   color: #333;
 }
-.buy-coin {
+.buy-coin a{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -296,6 +296,9 @@
 }
 .toggle-label input[type="checkbox"]:checked + .back .toggle {
 	margin-left: 50px;
+}
+input[type="button"] {
+  cursor: pointer;
 }
 .toggle-label .label {
 	display: block;
@@ -759,7 +762,6 @@ when users will click/enter button(link) browser will add a #id in a url and whe
   display: none;
 }
 #end {
-  width: 536px;
   padding-top:50px;
   padding-bottom:50px;
 }
@@ -777,7 +779,8 @@ when users will click/enter button(link) browser will add a #id in a url and whe
 #end .A-row {
   font-size: 16px;
   color: #1a1311;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #000;
   width: 100%;
 }
 #end .B-row {
@@ -1032,6 +1035,10 @@ when users will click/enter button(link) browser will add a #id in a url and whe
 .modal {
   margin-top: 100px;
 }
+#end .modal {
+  margin-top: 50px;
+}
+
 .coin_modal {
   width: 100%;
   text-align: center;
@@ -1084,4 +1091,95 @@ when users will click/enter button(link) browser will add a #id in a url and whe
 
 .coin_modal [type='submit'] {
   width: 50% !important;
+}
+.profileImgView {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 2px solid #f8f8f8;
+  box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 10%);
+}
+#profileImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../img/no-user-image.png');
+}
+.mid-title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 45px;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.omikuji-item {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.omikuji-item span {
+  font-weight: bold;
+  font-size: 19px;
+  padding-right: 20px;
+}
+
+.sub-des {
+  font-weight: bold;
+  font-size: 18px;
+  color: #DC000C;
+  margin-bottom: 14px;
+  margin-top: 70px;
+}
+
+.social-modal-item {
+  display: flex;
+  justify-content: center;
+}
+.social-modal-item img {
+  width: 41px;
+  margin-right: 28px;
+}
+
+.modal .logo {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.restart {
+  display: flex;
+}
+
+.restart .red-btn {
+  font-size: 16px;
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 28px;
+  background: #dc000c;
+  margin-top: 36px;
+}
+
+.mid-title .results {
+  font-family: "Kaiti";
+  font-size: 130px;
+  letter-spacing: -0.13em;
+}
+
+.profile .icon-item a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.error {
+  font-size: 16px;
+  color: #dc000c;
+  margin-top: 20px;
+  display: none;
 }

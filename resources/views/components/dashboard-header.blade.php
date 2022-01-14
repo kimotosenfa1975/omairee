@@ -17,6 +17,7 @@
     </div>
     <div class="flex-end">
       <ul class="menu-list pc">
+        <li class="menu-item"><a href="{{ route('mypage.jisha-mypage')}}">寺社</a></li>
         <li class="menu-item"><a href="{{ route('pub.jisha')}}">寺社一覧</a></li>
         <li class="menu-item"><a href="{{ route('pub.contact')}}">お知らせ</a></li>
         <li class="menu-item"><a href="{{ route('mypage.mypage')}}">マイページ</a></li>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Stripe;
+
 
 class MypageController extends Controller
 {
@@ -28,7 +30,6 @@ class MypageController extends Controller
             $user->save();
             toastr()->warning('プロファイル写真が更新されました。','',config('toastr.options'));
             return back();
- 
         }
     }
     
@@ -49,6 +50,30 @@ class MypageController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
         toastr()->success('パスワードが更新されました。','',config('toastr.options'));
+        return back();
+    }
+
+    public function stripePost(Request $request){
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $customer = Stripe\Customer::create([
+            'source' => $request->stripeToken,
+            'email' => \Auth::user()->email,
+        ]);
+        Stripe\Charge::create ([
+                "amount" => request()->get('coinCost'),
+                "currency" => "jpy",
+                'customer' => $customer->id,
+        ]);
+        $user=\Auth::user();
+        $coin = \Auth::user()->coin;
+        $user->stripe_id=$customer->id;
+        $user->pm_last_four=substr(request()->get('cardnumber'),-4);
+        $user->cardName=request()->get('cardName');
+        $user->expiredMonth=substr(request()->get('dateTime'),0,2);
+        $user->expiredYear='20'.substr(request()->get('dateTime'),3,2);
+        $coin->remained = $coin->remained + request()->get('coinCost');
+        $coin->save();  $user->save();
+        toastr()->success('コインが購入されました。','',config('toastr.options'));
         return back();
     }
 }

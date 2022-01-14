@@ -7,12 +7,13 @@
       <div class="main-content ema jisha-wrapper jisha-detail">
           <div class="bk-part"></div>
           <div class="jisha-detail-item">
-            <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
+            @if($jisha->checked)
+              <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
+            @endif
             <img src="{{ asset('img/jisha-item.png') }}" class="jisha-detailed-image" alt="">
-            <a  class="jisha-name">omairee神社</a>
+            <a  class="jisha-name">{{ $jisha->name}}</a>
           </div>
-          <p class="desc">omairee神社は国宝に指定され古代の建築様式を伝える四本殿をはじめ、
-            住吉の象徴とされる反橋（太鼓橋）や多数の文化財、樹齢1000年を超える御神木など、悠久の歴史を感じる由緒深い神社です。</p>
+          <p class="desc">{{ $jisha->description}}</p>
           <div class="section">
             <a href="#ema-modal" class="red">絵馬を見に行く</a>
           </div>
@@ -25,7 +26,7 @@
             @endforeach
           </div>
           <div class="section gift-btn-group">
-            <a  class="red">お参りする</a>
+            <a href="#ema-modal" class="red">お参りする</a>
           </div>
       </div>
       <div class="menu sp" onclick="menuClose()"></div>

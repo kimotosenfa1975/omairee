@@ -14,24 +14,24 @@
             </div>
             <div class="edit-text">
                 <p>カード番号</p>
-                <input type="text" name="name" value="0000-0000-0000-0000">
+                <input type="text" name="number" value="0000-0000-0000-0000">
             </div>
             <div class="divide">
               <div class="edit-text">
                   <p>有効期限</p>
-                  <input type="text" name="name" value="MM/YY">
+                  <input type="text" name="date_time" value="MM/YY">
               </div>
               <div class="edit-text">
                 <p>CVC</p>
-                <input type="text" name="name" value="CVC">
+                <input type="text" name="cvc" value="CVC">
               </div>
             </div>
             <div class="checkbox">
-              <input type="checkbox" id="save">
+              <input type="checkbox" name="save" id="save">
               <label for="save">この支払い方法を保存</label>
             </div>
             <div class="section">
-              <a >新しいカードを登録</a>
+              <input type="submit" value="新しいカードを登録">
             </div>
           </div>  
       </div>

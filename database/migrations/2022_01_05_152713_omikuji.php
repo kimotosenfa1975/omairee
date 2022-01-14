@@ -16,21 +16,20 @@ class Omikuji extends Migration
         //
         Schema::create('omikuji', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable()->unsigned()->comment('User ID');
-            $table->string('song');
-            $table->string('explain');
-            $table->string('fortune');
-            $table->string('love');
-            $table->string('aspiration');
-            $table->string('work');
-            $table->string('business');
-            $table->date('date');
-            $table->string('gambling');
-            $table->string('market');
-            $table->string('sick');
-            $table->string('lost');
-            $table->string('job');
-            $table->string('marriage');
+            $table->text('song');
+            $table->text('explain');
+            $table->text('fortune');
+            $table->text('love');
+            $table->text('aspiration');
+            $table->text('work');
+            $table->text('business');
+            $table->text('dating');
+            $table->text('gambling');
+            $table->text('market');
+            $table->text('sick');
+            $table->text('lost');
+            $table->text('job');
+            $table->text('marriage');
             $table->timestamps();
         });
     }

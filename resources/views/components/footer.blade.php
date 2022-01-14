@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="icon-item">
-            <a href="{{ route('pub.jisha-detail')}}"> 
+            <a href="{{ route('mypage.mypage')}}"> 
               <img src="{{ asset('img/coin.png') }}" alt="">
               <p>コイン購入</p>
             </a>

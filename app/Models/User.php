@@ -56,11 +56,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Omikuji::class);
     }
 
-    public function jishas() {
-        return $this->belongsToMany(Jisha::class);
+    public function jisha() {
+        return $this->hasOne(Jisha::class)->withDefault();
     }
 
     public function coin() {
-        return $this->hasOne(Coin::class);
+        return $this->hasOne(Coin::class)->withDefault([
+            'remained' => 0,
+        ]);
     }
 }

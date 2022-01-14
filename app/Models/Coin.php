@@ -9,4 +9,10 @@ class Coin extends Model
 {
     use HasFactory;
     protected $table="coin";
+
+    protected $fillable = [
+        'user_id',
+        'remained',
+    ];
+
 }

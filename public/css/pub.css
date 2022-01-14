@@ -363,6 +363,15 @@
   justify-content: center;
   align-items: flex-start;
 }
+.jisha-detail .gift-item:last-child img{
+  margin-top: 29px;
+  margin-bottom: 27px;
+}
+#toPray {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 .jisha-detail .section {
   display: flex;
   justify-content: center;
@@ -1003,4 +1012,129 @@ when users will click/enter button(link) browser will add a #id in a url and whe
   font-size: 24px;
   color: #1a1311;
   padding-bottom: 37px;
+}
+
+.main .pray {
+  margin-top:128px;
+  margin-bottom:100px;
+}
+.main .pray .section{
+  align-items: center;
+}
+.pray .prayImg {
+  margin-top: 48px;
+  margin-bottom: 36px;
+}
+
+.pray .sub-des {
+  font-weight: bold;
+  font-size: 20px;
+  color: #dc000c;
+  margin-bottom: 24px;
+}
+
+.pray .social-modal-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.pray .social-modal-item img {
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+[type='submit'] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+  width: 45% !important;
+  margin: auto;
+  margin-top: 36px;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 28px;
+  background: #dc000c;
+  margin-top: 36px;
+}
+.coin_modal [type='submit'] {
+  width: 50% !important;
+}
+.no-exchange {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 1px 6px;
+  border: 1px solid #dc000c;
+  border-radius: 10px;
+}
+.no-exchange span {
+  font-size: 12px;
+  color: #dc000c;
+}
+#coin-modal {
+  z-index: 1000;
+}
+.modal {
+  margin-top: 100px;
+}
+#end .modal {
+  margin-top: 50px;
+}
+.coin_modal {
+  width: 100%;
+  text-align: center;
+}
+.coin_modal .refereceText {
+  font-size: 12px;
+  color: #707070;
+  margin-bottom: 13px;
+}
+.coin_modal select {
+  width: 80%;
+  margin-top: 13px;
+  margin-bottom: 12px;
+}
+.coin_modal .form-field {
+  margin-top: 24px;
+}
+.coin_modal .form-field label{
+  font-weight: bold;
+  font-size: 16px;
+  color: #1a1311;
+  margin-bottom: 12px;
+  display: block;
+  text-align: left;
+}
+.payTitle {
+  font-size: 24px;
+  color: #dc000c;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 36px;
+  text-align: left;
+}
+.coin_modal .expiredTime {
+  display: flex;
+  justify-content: space-between;
+}
+.coin_modal .form-field .sub-field {
+  width: 45%;
+}
+.coin_modal .agree {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.coin_modal .agree label {
+  margin-bottom: 0px;
+  margin-left: 12px;
+}
+
+.coin_modal [type='submit'] {
+  width: 50% !important;
 }

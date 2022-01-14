@@ -5,25 +5,7 @@
     <div class="main wrapper">
       <x-profile></x-profile>
       <div class="main-content">
-        <form action="{{ route('mypage.upload') }}" id="avartar" method="POST" enctype="multipart/form-data" style="width:100%">
-            @csrf
-            <div class="avatar-section">
-                <div class="avatar-upload">
-                    <div class="avatar-edit">
-                        <input type='file' id="imageUpload" name="file" accept=".png, .jpg, .jpeg" />
-                        <label for="imageUpload"></label>
-                    </div>
-                    <div class="avatar-preview">
-                        <div id="imagePreview" 
-                        @if(isset(\Auth::user()->img)) 
-                            style="background-image:url(../image/{{\Auth::user()->img}})"
-                        @endif
-                        >
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <x-avatar></x-avatar>
         <div class="section cat-section">
             <img src="{{ asset('img/cat.png')}}" alt="">
             <a href="{{ route('mypage.ema')}}">さっそく絵馬を書こう</a>
@@ -93,7 +75,7 @@
                     </form>
                 </div>
             </div>
-            <div class="section">
+            <div class="section" id="buyCoin">
                 <p class="red-title">コイン購入<span>返金不可</span></p>
                 <div class="input-text">
                     <p class="left-text">残りコイン数</p>
@@ -166,23 +148,41 @@
 
       <div class="modal-container jisha-detail" id="coin-modal">
             <div class="modal">
-                {{ Form::open(array('route' => 'mypage.buyCoin','class'=>'coin_modal')) }}
+                {{ Form::open(array('route' => 'mypage.buyCoin','class'=>'coin_modal','id'=>'payment-form','data-locale'=>'auto','data-stripe-publishable-key'=>env('STRIPE_KEY'))) }}
                     <div class="refereceText">※コインのご購入は「110コイン」からです。</div>
                     {{Form::select('coinCost', array(
-                        '100' => '100コイン　￥120',
-                        '200' => '200コイン　￥120',
-                        '300' => '300コイン　￥120',
-                        '400' => '400コイン　￥120',
-                        '500' => '500コイン　￥120',
+                        '100' => '100コイン　￥100',
+                        '200' => '200コイン　￥200',
+                        '300' => '300コイン　￥300',
+                        '400' => '400コイン　￥400',
+                        '500' => '500コイン　￥500',
                     ),'',['id'=>'coinCost']);}}
-                    <div class="form-field">
-                        {{Form::label('email','メールアドレス')}}
-                        {{Form::text('email')}}
-                    </div>
-                    <div class="form-field">
-                        {{Form::label('password','パスワード')}}
-                        {{Form::text('password','',array('placeholder'=>'パスワード'))}}
-                    </div>
+                    @if(!isset(\Auth::user()->id))
+                        <div class="form-field">
+                            {{Form::label('email','メールアドレス')}}
+                            {{Form::text('email')}}
+                        </div>
+                        <div class="form-field">
+                            {{Form::label('password','パスワード')}}
+                            {{Form::text('password','',array('placeholder'=>'パスワード'))}}
+                        </div>
+                    @endif
+                    @if(isset(\Auth::user()->stripe_id))
+                        <div class="payTitle">決済情報</div>
+                        <div class="savedCard">
+                        <div class="left">
+                            <input type="radio" name="savedCard" id="savedCard">
+                            <div class="card-content">
+                            <div class="cardType">JCB</div>
+                            <div class="card-detail">
+                                <div class="card-name">{{\Auth::user()->cardName}}義</div>
+                                <div class="expired-time">有効期限{{\Auth::user()->expiredMonth}}/{{\Auth::user()->expiredYear}}</div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="last-four">***{{\Auth::user()->pm_last_four}}</div>
+                        </div>
+                    @endif
                     <div class="payTitle">決済情報</div>
                     <div class="form-field">
                         {{Form::label('cardName','カード名義')}}
@@ -190,16 +190,16 @@
                     </div>
                     <div class="form-field">
                         {{Form::label('cardnumber','カード番号')}}
-                        {{Form::text('cardnumber','',array('placeholder'=>'0000-0000-0000-0000'))}}
+                        {{Form::text('cardnumber','',array('placeholder'=>'0000-0000-0000-0000','class'=>'card-number'))}}
                     </div>
                     <div class="form-field expiredTime">
                         <div class="sub-field">
                             {{Form::label('dateTime','有効期限')}}
-                            {{Form::text('dateTime','',array('placeholder'=>'MM/YY'))}}
+                            {{Form::text('dateTime','',array('placeholder'=>'MM/YY','class'=>'card-expiry-date'))}}
                         </div>
                         <div class="sub-field">
                             {{Form::label('cvc','CVC')}}
-                            {{Form::text('cvc','',array('placeholder'=>'CVC'))}}
+                            {{Form::text('cvc','',array('placeholder'=>'CVC','class'=>'card-cvc'))}}
                         </div>
                     </div>
                     <div class="form-field agree">
@@ -211,6 +211,7 @@
                         {{Form::checkbox('termsAgree','','',array('id'=>'termsAgree'))}}
                         {{Form::label('termsAgree','利用規約に同意')}}
                     </div>
+                    <p class="error"></p>
                     {{Form::submit("購入")}}
                 {{ Form::close() }}
                 <a href="#m1-c" class="link-2"></a>
@@ -222,3 +223,5 @@
     <x-footer></x-footer>
     
 </x-app-layout>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>

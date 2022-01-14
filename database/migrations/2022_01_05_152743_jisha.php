@@ -16,6 +16,8 @@ class Jisha extends Migration
         //
         Schema::create('jishas', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->nullable()->unsigned()->comment('User ID');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->LongText('description');
             $table->string('mail');
@@ -23,7 +25,7 @@ class Jisha extends Migration
             $table->string('financialName');
             $table->integer('accountNumber');
             $table->string('branch');
-            $table->tinyInteger('checked');
+            $table->tinyInteger('checked')->de;
             $table->string('img');
             $table->timestamps();
         });

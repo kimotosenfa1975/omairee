@@ -12,6 +12,10 @@
   font-family: "NotoSans Regular";
   src: url('../fonts/Noto-Regular.otf');
 }
+@font-face {
+  font-family: "Kaiti";
+  src: url('../fonts/simkai.ttf');
+}
 
 *, :after, :before {
   -moz-box-sizing: border-box;
@@ -39,6 +43,7 @@ body {
 }
 .main {
   margin-top: calc(0px + 81px);
+  margin-bottom: 85px;
 }
 #toast-container>.toast-custom {
   background-color: #FFD200 !important;
@@ -436,4 +441,49 @@ img {
 [type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus {
   border-color: #707070;
   background-color: #707070;
+}
+
+.savedCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  padding: 20px;
+  cursor: pointer;
+}
+.left {
+  display: flex;
+  align-items: center;
+}
+.savedCard img{
+  margin-left: 24px;
+}
+.card-content {
+  text-align: left;
+  margin-left: 24px;
+}
+.cardType {
+  font-size: 14px;
+  color: #1a1311;
+}
+.card-detail {
+  font-size: 12px;
+  color: #707070;
+  margin-top: 8px;
+  display: flex;
+}
+.card-detail .expired-time {
+  margin-left: 36px;
+}
+.last-four {
+  color: #1a1311;
+  font-size: 14px;
+}
+
+.error {
+  color:#dc000c;
+  margin-top:13px;
+  display: none;
 }

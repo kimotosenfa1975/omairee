@@ -45,8 +45,8 @@
             <div class="register-button">
                 <button type="submit">新規登録</button>
             </div>
-            <div class="jisha">
-                <a  href="{{ route('login') }}">寺社掲載申請はこちら</a>
+            <div class="jisha" style="margin-bottom:50px;">
+                <a  href="{{ route('mypage.jisha-post') }}">寺社掲載申請はこちら</a>
             </div>
         </form>
     </x-auth-card>

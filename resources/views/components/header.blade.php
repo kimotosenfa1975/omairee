@@ -6,7 +6,7 @@
           <li class="menu-item"><a href="{{ route('mypage.ema')}}">絵馬</a></li>
           <li class="menu-item"><a href="{{ route('pub.jisha')}}">寺社一覧</a></li>
           <li class="menu-item"><a href="{{ route('pub.contact')}}">お知らせ</a></li>
-          <li class="menu-item"><a href="{{ route('pub.jisha-detail')}}">コイン購入</a></li>
+          <li class="menu-item"><a href="{{ route('mypage.mypage')}}">コイン購入</a></li>
           <li class="menu-item"><a href="{{ route('mypage.omikuji')}}">おみくじ</a></li>
         </ul>
         <div class="auth">
