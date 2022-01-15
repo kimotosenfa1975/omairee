@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    <x-header></x-header>
+    <x-dashboard-header></x-dashboard-header>
     <div class="main wrapper">
         <x-jishaprofile></x-jishaprofile>
       <div class="main-content">
