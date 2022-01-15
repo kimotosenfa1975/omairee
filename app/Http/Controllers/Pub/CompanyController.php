@@ -20,7 +20,7 @@ class CompanyController extends Controller
     function detail($id) {
         $jisha=Jisha::where('id',$id)->first();
         if($jisha === null) {
-            $jisha=Jisha::create([]);
+            $jisha=Jisha::create();
         }
         $user= \Auth::user();
         return view('public.jisha-detail',compact('jisha','user'));

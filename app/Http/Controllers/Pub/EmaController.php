@@ -22,6 +22,9 @@ class EmaController extends Controller
     function list() {
         $emas = \Auth::user()->emas;
         $jisha = \Auth::user()->jisha;
+        if(!isset($jisha->id)) {
+            $jisha = \Auth::user()->jisha->create();
+        }
         return view('mypage.ema-list',compact('emas','jisha'));
     }
 

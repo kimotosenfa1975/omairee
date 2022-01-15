@@ -28,7 +28,7 @@
             @endforeach
           </div>
           <div class="section gift-btn-group">
-            <a href="{{ route('pub.jisha-detail',$jisha)}}" class="red">お参りする</a>
+              <a href="{{ route('pub.jisha-detail',$jisha)}}" class="red">お参りする</a>
           </div>
       </div>
       <div class="menu sp" onclick="menuClose()"></div>
