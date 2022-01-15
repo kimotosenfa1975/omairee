@@ -12,7 +12,9 @@
                 <img src="{{ asset('img/proved.png') }}" class="proved" alt="">
               @endif
               <img src="{{ asset('img/jisha-item.png') }}" alt="">
+              @if($jisha->name)
               <a href="{{ route('pub.jisha-detail',$jisha)}}" class="jisha-name">{{ $jisha->name }}</a>
+              @endif
             </div>
           @endforeach
         </div>

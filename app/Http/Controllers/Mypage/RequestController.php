@@ -39,7 +39,7 @@ class RequestController extends Controller
             'building'=>$request->get('building'),
         );
         Notification::locale('ja')->send($mailuser, new SubscriptionNotification($data));
-        toastr()->success('転送が完了しました。','',config('toastr.options'));
+        toastr()->success('転送を完了しました。','',config('toastr.options'));
         return back();
     }
 }

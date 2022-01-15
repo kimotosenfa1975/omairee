@@ -42,7 +42,7 @@
                     <p>ご住所</p>
                     <div class="addr">
                         <input type="text" name="address" placeholder="5900802" required id="address"> 
-                        <input type="button" class="get-addr" onclick="getAddress()" value="住所取得">
+                        <input type="button" class="get-addr" id="getAddr" value="住所取得">
                     </div>
                 </div>
                 <div class="edit-text">
@@ -75,5 +75,7 @@
         function getAddress() {
             AjaxZip3.zip2addr('address','','prefectures','municipalities','addr-detail');
         }
+        document.getElementById("getAddr").addEventListener("click", getAddress);
+
     </script>
 </x-app-layout>

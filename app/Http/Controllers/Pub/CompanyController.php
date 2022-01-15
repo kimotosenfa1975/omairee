@@ -33,7 +33,9 @@ class CompanyController extends Controller
         }
         $coin = \Auth::user()->coin;
         if($coin === null) {
-            $coin = Coin::create();
+            $coin = Coin::create([
+                'remained'=>0,
+            ]);
         }
         $ema=$request->get('ema');
         $saisen=$request->get('saisen');
