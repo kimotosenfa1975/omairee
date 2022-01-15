@@ -93,23 +93,23 @@
                 <div class="radio-group">
                     <div>
                         <input type="radio" name="cost" id="100" value="100" checked>
-                        <label for="100">100コイン　¥120</label>
+                        <label for="100">100コイン　¥100</label>
                     </div>
                     <div>
                         <input type="radio" name="cost" id="200" value="200">
-                        <label for="200">200コイン　¥120</label>
+                        <label for="200">200コイン　¥200</label>
                     </div>
                     <div>
                         <input type="radio" name="cost" id="300" value="300">
-                        <label for="300">300コイン　¥120</label>
+                        <label for="300">300コイン　¥300</label>
                     </div>
                     <div>
                         <input type="radio" name="cost" id="400" value="400">
-                        <label for="400">400コイン　¥120</label>
+                        <label for="400">400コイン　¥400</label>
                     </div>
                     <div>
                         <input type="radio" name="cost" id="500" value="500">
-                        <label for="500">500コイン　¥120</label>
+                        <label for="500">500コイン　¥500</label>
                     </div>
                     <a href="#coin-modal" onclick="buyCoin()">購入</a>
                 </div>
