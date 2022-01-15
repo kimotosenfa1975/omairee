@@ -16,7 +16,7 @@ class ContactController extends Controller
     }
 
     function send(Request $request) {
-        $mailuser = User::where('email','clark194637285@gmail.com')->get();
+        $mailuser = User::where('email','m_osugi@omairee.com')->get();
         $data=array(
             'email'=> $request->get('email'),
             'tel'=>$request->get('tel'),

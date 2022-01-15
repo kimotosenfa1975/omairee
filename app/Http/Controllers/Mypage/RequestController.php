@@ -29,7 +29,7 @@ class RequestController extends Controller
         
      
     function postSend(Request $request) {
-        $mailuser = User::where('email','clark194637285@gmail.com')->get();
+        $mailuser = User::where('email','m_osugi@omairee.com')->get();
         $data=array(
             'mail'=> $request->get('mail'),
             'address'=>$request->get('address'),
