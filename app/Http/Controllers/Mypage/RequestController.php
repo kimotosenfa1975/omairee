@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Mypage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Notifications\ContactNotification;
+use App\Notifications\SubscriptionNotification;
 use App\Models\User;
 use Notification;
 
