@@ -40,29 +40,34 @@ class CompanyController extends Controller
         $ema=$request->get('ema');
         $saisen=$request->get('saisen');
         $coin->remained = $coin->remained-$ema-$saisen;
+        $coin->save();
         $jishaId = $request->get('jishaId');
         $jisha = Jisha::where('id',$jishaId)->first();
         if($jisha ===  null) {
             $jisha = Jisha::create();
         }
-        $jishaEma=$jisha->jishaemas;
-        $jishaSaisen=$jisha->jishasaisens;
         $emaCheck = JishaEma::where('ema',$ema)->first();
         if($emaCheck === null) {
+            $jishaEma = JishaEma::create();
             $jishaEma->ema=$ema;
             $jishaEma->ema_count=1;
+            $jishaEma->save();
         }else {
             $emaCheck->ema_count++;
+            $emaCheck->save();
         }
         $saisenCheck = JishaSaisen::where('saisen',$saisen)->first();
         if($saisenCheck === null) {
+            $jishaSaisen = JishaSaisen::create();
             $jishaSaisen->saisen=$saisen;
             $jishaSaisen->saisen_count=1;
+            $jishaSaisen->save();
         }else {
             $saisenCheck->saisen_count++;
+            $saisenCheck->save();
         }
-        $jishaSaisen=$jisha->jishasaisens;
-        $coin->save();$emaCheck->save();$saisenCheck->save();
+       
+        
         return view('public.pray');
     }
 }
