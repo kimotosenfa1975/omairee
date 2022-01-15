@@ -2,7 +2,7 @@
     
     <x-header></x-header>
     
-    <div class="single-titletitle">
+    <div class="single-title">
       特定商取引法の表示
     </div>
     <div class="wrapper single-page">

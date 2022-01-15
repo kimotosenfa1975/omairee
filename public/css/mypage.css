@@ -1002,7 +1002,6 @@ when users will click/enter button(link) browser will add a #id in a url and whe
   -webkit-appearance: button; /* 1 */
   background-color: transparent; /* 2 */
   background-image: none; /* 2 */
-  width: 45% !important;
   margin: auto;
   margin-top: 36px;
   text-align: center;

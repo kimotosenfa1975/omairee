@@ -27,6 +27,12 @@ class Jisha extends Migration
             $table->string('branch')->nullable();
             $table->tinyInteger('checked')->default(0);
             $table->string('img')->nullable();
+            $table->string('mail')->nullable();
+            $table->string('address')->nullable();
+            $table->string('prefectures')->nullable();
+            $table->string('municipalities')->nullable();
+            $table->string('addr-detail')->nullable();
+            $table->string('building')->nullable();
             $table->timestamps();
         });
     }

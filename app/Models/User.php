@@ -62,7 +62,7 @@ class User extends Authenticatable
 
     public function coin() {
         return $this->hasOne(Coin::class)->withDefault([
-            'remained' => 0,
+            'remained' => 0, 
         ]);
     }
 }

@@ -38,7 +38,7 @@ class RequestController extends Controller
             'addr-detail'=>$request->get('addr-detail'),
             'building'=>$request->get('building'),
         );
-        Notification::locale('ja')->send($mailuser, new ContactNotification($data));
+        Notification::locale('ja')->send($mailuser, new SubscriptionNotification($data));
         toastr()->success('転送が完了しました。','',config('toastr.options'));
         return back();
     }
